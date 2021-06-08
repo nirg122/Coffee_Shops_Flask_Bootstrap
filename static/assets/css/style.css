@@ -910,3 +910,8 @@ h1 {
 .row.justify-content-center {
 margin-right: 0;
 }
+
+.inner-page {
+margin-left: 100px;
+max-width: 50%;
+}
