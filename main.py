@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__)
 Bootstrap(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', "sqlite:///cafes.db")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL1', "sqlite:///cafes.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 db = SQLAlchemy(app)
@@ -23,6 +23,7 @@ class Cafe(db.Model):
     can_take_calls = db.Column(db.BOOLEAN, nullable=False)
     seats = db.Column(db.VARCHAR(250), nullable=False)
     coffee_price = db.Column(db.VARCHAR(250), nullable=False)
+
 
 
 @app.route("/")
