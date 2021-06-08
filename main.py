@@ -1,12 +1,13 @@
 from flask import Flask, render_template, redirect, url_for, request
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 app = Flask(__name__)
 Bootstrap(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///cafes.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = '8BYkEfBA6O6sdfsdfeBXox3427C0sKR6b'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 db = SQLAlchemy(app)
 
 
@@ -22,8 +23,6 @@ class Cafe(db.Model):
     can_take_calls = db.Column(db.BOOLEAN, nullable=False)
     seats = db.Column(db.VARCHAR(250), nullable=False)
     coffee_price = db.Column(db.VARCHAR(250), nullable=False)
-
-
 
 
 @app.route("/")
