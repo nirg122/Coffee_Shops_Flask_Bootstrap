@@ -25,6 +25,8 @@ class Cafe(db.Model):
     coffee_price = db.Column(db.VARCHAR(250), nullable=False)
 
 
+db.create_all()
+
 
 @app.route("/")
 def home():
@@ -88,6 +90,7 @@ def delete():
     db.session.delete(cafe)
     db.session.commit()
     return redirect('/#coffee-shops')
+
 
 if __name__ == '__main__':
     app.run()
