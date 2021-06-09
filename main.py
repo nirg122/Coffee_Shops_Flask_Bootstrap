@@ -25,7 +25,7 @@ class Cafe(db.Model):
     coffee_price = db.Column(db.VARCHAR(250), nullable=False)
 
 
-db.create_all()
+# db.create_all()
 
 
 @app.route("/")
